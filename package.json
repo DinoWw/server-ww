@@ -1,0 +1,27 @@
+{
+  "name": "server-ww",
+  "version": "1.0.0",
+  "description": "express\u001b[3~\u001b[3~\u001b[3~\u001b[3modular express server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "cross-env NODE_ENV=development node server.js",
+    "run": "cross-env NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinoWw/server-ww.git"
+  },
+  "author": "Dino_Ww",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DinoWw/server-ww/issues"
+  },
+  "homepage": "https://github.com/DinoWw/server-ww#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
