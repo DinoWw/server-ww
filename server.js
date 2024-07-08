@@ -57,7 +57,7 @@ if(process.env.NODE_ENV == 'production'){
       cert: certificate,
       ca: ca
    }, app);
-   server.listen(process.env.HTTPS_PORT, `HTTPS server listening on port ${process.env.HTTPS_PORT}`);
+   server.listen(process.env.HTTPS_PORT, () => console.log(`HTTPS server listening on port ${process.env.HTTPS_PORT}`));
 
    // redirect http requests to https
    const httpApp = express();
