@@ -41,6 +41,7 @@ for( let routerFolder of routerFolders ) {
    if([".gitignore"].includes(routerFolder)) continue;
    const routerFile = fs.readdirSync(path.resolve(__dirname, "./routes", routerFolder)).find(name => name.endsWith(".routes.js"));
    const router = require(path.resolve(__dirname, "./routes", routerFolder, routerFile));
+   // console.log("Loading routes for: ", path.resolve(__dirname, "./routes", routerFolder, routerFile))
    app.use(router.path, router.router);
 }
 
