@@ -13,7 +13,7 @@ require('dotenv').config()
 
 // run with npm run because it sets env variables
 if(process.env.NODE_ENV === undefined){
-   throw new Error("use npm run produciton or npm run dev");
+   throw new Error("use npm run prod or npm run dev");
 }
 
 //body content parsing middleware
@@ -36,9 +36,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 // loading of router paths
-const routerPaths = fs.readdirSync(path.resolve(__dirname, "./routes"));
-for( let routerPath of routerPaths ) {
-   const router = require(path.resolve(__dirname, "./routes", routerPath));
+const routerFolders = fs.readdirSync(path.resolve(__dirname, "./routes"));
+for( let routerFolder of routerFolders ) {
+   if([".gitignore"].includes(routerFolder)) continue;
+   const routerFile = fs.readdirSync(path.resolve(__dirname, "./routes", routerFolder)).find(name => name.endsWith(".routes.js"));
+   const router = require(path.resolve(__dirname, "./routes", routerFolder, routerFile));
    app.use(router.path, router.router);
 }
 
